@@ -14,7 +14,7 @@ function About() {
     let [loading, setLoading] = useState(false);
     let queryFormHandler = async (event) => {
         event.preventDefault();
-        let URL = "http://localhost:4000/api/add-query"
+        let URL = "https://akashphysics-backend.herokuapp.com/api/add-query"
         try {
             let response = await axios.post(URL, {
                 name: queryName,

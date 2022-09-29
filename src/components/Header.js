@@ -24,7 +24,7 @@ function Header(props) {
                 name: decode.name,
                 email: decode.email,
             }
-        let URL = "http://localhost:4000/api/add-user";
+        let URL = "https://akashphysics-backend.herokuapp.com/api/add-user";
         try {
             let res = await axios.post(URL,cred);
             console.log("successful db entry");

@@ -32,7 +32,7 @@ function Course() {
   }
   let [courseDetails, setCourseDetails] = useState({ ...initCourse });
   let getCourseDetails = async () => {
-    let URL = "http://localhost:4000/api/get-course/" + params.id;
+    let URL = "https://akashphysics-backend.herokuapp.com/api/get-course/" + params.id;
     try {
       let response = await axios.get(URL);
       let data = response.data;
@@ -56,7 +56,7 @@ function Course() {
     return false;
   }
   let coursePaid = async () => {
-    let URL = "http://localhost:4000/api/paids";
+    let URL = "https://akashphysics-backend.herokuapp.com/api/paids";
     let token = localStorage.getItem("auth-token");
     console.log("hehehehehe")
     if (token) {
@@ -93,7 +93,7 @@ function Course() {
       alert('unable to load');
       return false;
     }
-    let URL = "http://localhost:4000/api/payment";
+    let URL = "https://akashphysics-backend.herokuapp.com/api/payment";
     let sendData = {
       "amount": "" + courseDetails.fees,
       "email": "" + emailRef.current.value,
@@ -115,7 +115,7 @@ function Course() {
         image: "/image/akash physics",
         order_id: order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
         handler: async (response) => {
-          let URL = "http://localhost:4000/api/callback";
+          let URL = "https://akashphysics-backend.herokuapp.com/api/callback";
           let sendData = {
             razorpay_payment_id: response.razorpay_payment_id,
             razorpay_order_id: response.razorpay_order_id,
@@ -126,7 +126,7 @@ function Course() {
             let { data } = paymentStatus;
             let { signatureIsValid } = data;
             if (signatureIsValid) {
-              let URL2 = "http://localhost:4000/api/verify";
+              let URL2 = "https://akashphysics-backend.herokuapp.com/api/verify";
               let verifyAction = await axios.post(URL2, {
                 email: emailRef.current.value,
                 verifyStatus: signatureIsValid,
@@ -168,7 +168,7 @@ function Course() {
 
   let queryFormHandler = async (event) => {
     event.preventDefault();
-    let URL = "http://localhost:4000/api/add-query"
+    let URL = "https://akashphysics-backend.herokuapp.com/api/add-query"
     try {
       let response = await axios.post(URL, {
         name: queryName,

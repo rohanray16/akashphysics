@@ -37,7 +37,8 @@ function Header(props) {
             icon: "success",
             title: "Login Successfully",
         }).then(() => {
-            window.location.reload();
+            window.location = window.location;
+            window.location.reload(true);
         });
     }
     let onError = () => {

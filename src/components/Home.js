@@ -36,7 +36,9 @@ function Home() {
                 {loading ? (<></>) : (
                     < Header />
                 )}
-                <div className="heading container-fluid mt-10">
+                <div className={`heading container-fluid {
+                    ${loading?"":"mt-10"}
+                }`}>
                     <div className="row d-flex justify-content-center align-items-center border-success hth">
                         <div className="col-lg-6 col-md-8">
                             <div>

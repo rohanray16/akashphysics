@@ -6,6 +6,7 @@ import Carousel from './Carousel'
 import CourseItems from './CourseItems'
 import Header from './Header'
 import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader'
+import Footer from './Footer'
 
 function Home() {
     let [loading, setLoading] = useState(false);
@@ -36,9 +37,9 @@ function Home() {
                 {loading ? (<></>) : (
                     < Header />
                 )}
-                <div className={`heading container-fluid {
-                    ${loading?"":"mt-10"}
-                }`}>
+                <div className={`heading container-fluid 
+                    ${loading ? `` : `mt-10`}
+                `}>
                     <div className="row d-flex justify-content-center align-items-center border-success hth">
                         <div className="col-lg-6 col-md-8">
                             <div>
@@ -54,7 +55,7 @@ function Home() {
                             className='iframe-container'
                         >
                             {/* <img src="/image/mosh-home-2x.jpg" alt="" className="img-fluid img-ht" /> */}
-                            <iframe width="560" className='border-frame' height="315" src="https://www.youtube.com/embed/156QqV_VAv4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                            <iframe width="560" className='border-frame' height="315" src="https://www.youtube.com/embed/156QqV_VAv4?rel=0&modestbranding=1&autohide=1&showinfo=0&controls=0" title="Hello" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                             {/* <div className="play-btn invisible">
                             <img src="./image/play-1173495_640.png" className="play-ht" />
                         </div> */}
@@ -119,16 +120,16 @@ function Home() {
                     <div className='row'>
                         <p className='text-center bold h3'>Demo Videos</p>
                     </div>
-                    <div className="row d-flex justify-content-between mt-4">
+                    <div className="row d-flex justify-content-evenly mt-4">
                         <div className='col-xs-12 col-sm-6 col-lg-4 mx-auto d-flex justify-content-center  mt-3'>
 
-                            <iframe className='frame-border' width="200" height="113" src="https://www.youtube.com/embed/pRKfx8jbchs" title="Class 11th | Gravitation | Force and Energy" frameBorder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                            <iframe width="560" className="frame-border" height="315" src="https://www.youtube.com/embed/QGud4ncI5UM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                         <div className='col-xs-12 col-sm-6 col-lg-4 d-flex justify-content-center mt-3'>
-                            <iframe className='frame-border' width="200" height="113" src="https://www.youtube.com/embed/QGud4ncI5UM" title="SHM Time Period" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                        <iframe width="560" className="frame-border" height="315" src="https://www.youtube.com/embed/pRKfx8jbchs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                         <div className='col-xs-12 col-sm-6 col-lg-4 d-flex justify-content-center mt-3 mb-3'>
-                            <iframe className='frame-border' width="200" height="113" src="https://www.youtube.com/embed/SGUkffbyIHI" title="Class 11th | Properties of Matter | Surface Tension" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                            <iframe width="560" className="frame-border" height="315" src="https://www.youtube.com/embed/SGUkffbyIHI" title="Class 11th | Properties of Matter | Surface Tension" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                         <div className="d-flex justify-content-center mt-5">
                             <button className='btn btn-outline-warning' onClick={goToDemo}>View more videos</button>
@@ -139,11 +140,7 @@ function Home() {
                 </div> */}
 
                 </div>
-                <div className="heading5 pt-5">
-                    <div>
-                        <p className='text-center fontf' >Contact/Whatsapp at 8697317359 for queries</p>
-                    </div>
-                </div>
+                <Footer/>
             </>
 
 

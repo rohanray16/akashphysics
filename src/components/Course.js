@@ -8,6 +8,7 @@ import Header from './Header'
 import Swal from "sweetalert2";
 import jwtDecode from 'jwt-decode';
 import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader'
+import Footer from './Footer';
 
 function Course() {
   let closeModal = useRef();
@@ -58,23 +59,29 @@ function Course() {
   let coursePaid = async () => {
     let URL = "https://akashphysics-backend.herokuapp.com/api/paids";
     let token = localStorage.getItem("auth-token");
-    console.log("hehehehehe")
+    console.log("hehehehehe11")
     if (token) {
       try {
         let response = await axios.post(URL, {
-          email: jwtDecode(token).email
+          email: jwtDecode(token).email,
+          course_id: Number(params.id)
         });
         console.log("entry donw man")
         console.log(jwtDecode(token).email)
         console.log(response.data);
-        if (response.data.result) {
+        console.log("response.data.result");
+        console.log(response.data.result);
+        console.log("response.data.verify")
+        console.log(response.data.verify)
+
+        if (response.data.result && response.data.verify) {
           console.log(response.data.result)
           setCoursePd(true);
           console.log("entry done");
         }
       } catch (error) {
-        alert("error");
         console.log(error);
+        
       }
     }
   }
@@ -125,10 +132,11 @@ function Course() {
             let paymentStatus = await axios.post(URL, sendData);
             let { data } = paymentStatus;
             let { signatureIsValid } = data;
-            if (signatureIsValid) {
+            if (signatureIsValid == true) {
               let URL2 = "https://akashphysics-backend.herokuapp.com/api/verify";
               let verifyAction = await axios.post(URL2, {
                 email: emailRef.current.value,
+                course_id: courseDetails.course_id,
                 verifyStatus: signatureIsValid,
                 razorpay_order_id: sendData.razorpay_order_id,
                 razorpay_payment_id: sendData.razorpay_payment_id,
@@ -148,9 +156,9 @@ function Course() {
           }
         },
         prefill: {
-          name: "Rohan Ray",
-          email: "rohanandmail@gmail.com",
-          contact: "8768366427"
+          name: userNameRef.current.value,
+          email: emailRef.current.value,
+          contact: phoneRef.current.value
         },
         notes: {
           address: "Razorpay Corporate Office"
@@ -193,11 +201,11 @@ function Course() {
     }
   }
   useEffect(() => {
+    getCourseDetails();
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
     }, 2000)
-    getCourseDetails();
     enrollment();
     coursePaid();
     
@@ -325,7 +333,7 @@ function Course() {
       {loading ? (<></>) : (
                     < Header />
                 )}
-      <div className="heading4 container-fluid mt-10 p-5">
+      <div className={`heading4 container-fluid ${loading ? `` : `mt-10`} p-5`}>
         <div className="row d-flex justify-content-center align-items-center border-success hth">
           <div className="col-lg-6 col-md-8">
             <div className=''>
@@ -403,6 +411,7 @@ function Course() {
         </div>
 
       </div>
+      <Footer/>
     </>
   )
 }

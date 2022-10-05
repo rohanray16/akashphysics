@@ -19,14 +19,14 @@ function Header(props) {
         localStorage.setItem("auth-token", token);
         setInvisible('invisible');
         let decode = jwtDecode(token);
-            console.log("decode")
-            let cred = {
-                name: decode.name,
-                email: decode.email,
-            }
+        console.log("decode")
+        let cred = {
+            name: decode.name,
+            email: decode.email,
+        }
         let URL = "https://akashphysics-backend.herokuapp.com/api/add-user";
         try {
-            let res = await axios.post(URL,cred);
+            let res = await axios.post(URL, cred);
             console.log("successful db entry");
 
         } catch (error) {
@@ -107,7 +107,7 @@ function Header(props) {
             }
 
         }
-        if(props.enrolState == false){
+        if (props.enrolState == false) {
             clickOnLoad.current.click();
 
         }
@@ -132,28 +132,28 @@ function Header(props) {
                             <li className="nav-item ms-4">
 
                                 <a className="nav-link font-sizing-medium curso" onClick={goToCourses} >Courses</a>
-                                
+
                             </li>
                             <li className="nav-item ms-4">
-                                <a className="nav-link font-sizing-medium curso" onClick={goToAbout}>About/Contact Me</a>
+                                <a className="nav-link text-nowrap font-sizing-medium curso" onClick={goToAbout}>About/Contact Me</a>
                             </li>
                             <li className="nav-item ms-4">
-                      
+
                                 <a className="nav-link text-nowrap font-sizing-medium curso" onClick={goToDemo}>Demo Videos</a>
 
                             </li>
                             {userLogin == null ? (
                                 <li className="nav-item ms-4 dd1">
-                                    <a className="nav-link font-sizing-medium curso" 
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#login"
+                                    <a className="nav-link font-sizing-medium curso text-nowrap"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#login"
                                     // ref={clickOnLoad}
                                     >Login/Sign Up</a>
                                 </li>
                             ) : (
                                 <>
                                     <li className="nav-item ms-4 dd1">
-                                        <a className="nav-link font-sizing-medium" >Welcome, {userLogin.name}</a>
+                                        <a className="nav-link font-sizing-medium text-nowrap" >Welcome, {userLogin.name}</a>
                                     </li>
                                     <li className="nav-item ms-4 dd1">
                                         <a className="nav-link font-sizing-medium" onClick={logout}>Logout</a>
@@ -177,31 +177,31 @@ function Header(props) {
 
 
                         </ul>
-                        {userLogin == null? (
-                        // <form className='form-inline ms-4 my-2 navbar-nav dd2'>
-                            <button className="btn btn-outline-danger rounded-pill text-start px-3 widdth font-sizing-medium ms-4 dd2"
-                            data-bs-toggle="modal"
-                            data-bs-target="#login"
-                            ref={clickOnLoad}
+                        {userLogin == null ? (
+                            // <form className='form-inline ms-4 my-2 navbar-nav dd2'>
+                            <button className="btn btn-outline-danger rounded-pill text-start px-3 widdth font-sizing-medium ms-4 dd2 text-nowrap"
+                                data-bs-toggle="modal"
+                                data-bs-target="#login"
+                                ref={clickOnLoad}
                             >
                                 Login/Sign Up
                             </button>
-                        
+
                         ) : (
-                            <div className='ms-4 my-2 navbar-nav dd2 d-flex justify-content-center align-items-center'>
-                            <div className='text-center'>Welcome, {userLogin.name}</div>
-                            <div className='ms-2'>
-                            <button className="btn btn-outline-danger rounded-pill text-start px-3 widdth font-sizing-medium" onClick={logout}>
-                                Logout
-                            </button>
+                            <div className='ms-4 my-2 navbar-nav dd2 d-flex justify-content-center align-items-center dd2'>
+                                <div className='text-center dd2'>Welcome, {userLogin.name}</div>
+                                <div className='ms-2 dd2'>
+                                    <button className="btn btn-outline-danger rounded-pill text-start px-3 widdth font-sizing-medium dd2" onClick={logout}>
+                                        Logout
+                                    </button>
+                                </div>
                             </div>
-                        </div>
                         )}
                     </div>
                 </div>
             </nav>
-            </GoogleOAuthProvider>
-            )
+        </GoogleOAuthProvider>
+    )
 }
 
-            export default Header
+export default Header

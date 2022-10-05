@@ -10,7 +10,7 @@ function Carousel() {
     <AutoplaySlider
     play={true}
     cancelOnInteraction={false} // should stop playing on user interaction
-    interval={6000}
+    interval={4000}
     className="h-675"
   >
     <div>

@@ -7,9 +7,11 @@ function CourseItems(props) {
     let navigate = useNavigate();
     let goToCourses = () => {
         navigate("/courses");
+        window.scrollTo(0, 0);
     }
     let goToCourseItem = (id) => {
         navigate("/course-page/"+id);
+        window.scrollTo(0, 0);
     }
     return (
         <>
@@ -17,7 +19,7 @@ function CourseItems(props) {
                 <div className="text-bg4 text-center" >
                     Courses
                 </div>
-                <div className="row mx-auto w-87 d-flex flex-row justify-content-between">
+                <div className="row mx-auto w-87 d-flex flex-row justify-content-evenly">
                     <div className="card border-dark cardw col-xs-12 col-sm-6 col-md-4 d-flex flex-column justify-content-center p-00 mt-5" onClick={() => goToCourseItem(1)}>
                         <div className='cardw-1 p-00 rounded-top'>
                             <img src="./image/class102.png" alt="" className='img-fluid  ' />

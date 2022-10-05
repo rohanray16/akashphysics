@@ -5,6 +5,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import { useEffect } from 'react'
 import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader'
+import Footer from './Footer';
 
 function About() {
     let [queryMail, setQueryMail] = useState("");
@@ -117,6 +118,7 @@ function About() {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </>
     )
 }

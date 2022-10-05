@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import CourseItems from './CourseItems'
 import Header from './Header'
 import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader'
+import Footer from './Footer';
 
 function CoursePage() {
     let [loading, setLoading] = useState(false);
@@ -27,6 +28,7 @@ function CoursePage() {
                     < Header />
                 )}
             <CourseItems home={true}/>
+            <Footer/>
         </>
     )
 }

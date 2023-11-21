@@ -15,7 +15,7 @@ function About() {
     let [loading, setLoading] = useState(false);
     let queryFormHandler = async (event) => {
         event.preventDefault();
-        let URL = "https://akashphysicsbackend.onrender.com//api/add-query"
+        let URL = "https://akashphysicsbackend.onrender.com/api/add-query"
         try {
             let response = await axios.post(URL, {
                 name: queryName,
